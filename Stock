@@ -1,0 +1,413 @@
+// <!-- Html -->
+// <!DOCTYPE html>
+// <html lang="en">
+// <head>
+//   <meta charset="UTF-8">
+//   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//   <style>
+//     #slider-container {
+//       width: 100%;
+//       overflow: hidden;
+//     }
+
+//     #image-slider {
+//       display: flex;
+//       transition: transform 0.5s ease-in-out;
+//     }
+
+//     .slider-image {
+//       width: 100%;
+//       height: auto;
+//     }
+
+//     /* Add additional styles as needed */
+
+//   </style>
+// </head>
+// <body>
+
+//   <div id="slider-container">
+//     <div id="image-slider">
+//       <img src="image1.jpg" class="slider-image" alt="Image 1">
+//       <img src="image2.jpg" class="slider-image" alt="Image 2">
+//       <img src="image3.jpg" class="slider-image" alt="Image 3">
+//       <!-- Add more images as needed -->
+//     </div>
+//   </div>
+
+//   <script>
+//     const slider = document.getElementById('image-slider');
+//     let currentIndex = 0;
+
+//     function showImage(index) {
+//       const translateValue = -index * 100 + '%';
+//       slider.style.transform = 'translateX(' + translateValue + ')';
+//     }
+
+//     function nextSlide() {
+//       currentIndex = (currentIndex + 1) % slider.children.length;
+//       showImage(currentIndex);
+//     }
+
+//     function prevSlide() {
+//       currentIndex = (currentIndex - 1 + slider.children.length) % slider.children.length;
+//       showImage(currentIndex);
+//     }
+
+//     // You can add event listeners or controls to navigate through the slides
+//     // For example:
+//     // document.getElementById('next-btn').addEventListener('click', nextSlide);
+//     // document.getElementById('prev-btn').addEventListener('click', prevSlide);
+
+//     // Initial display
+//     showImage(currentIndex);
+
+//     // You may want to add auto-slide functionality using setInterval if needed
+//     // setInterval(nextSlide, 3000); // Slide every 3 seconds
+
+//   </script>
+// </body>
+// </html>
+
+
+
+// <!-- css  -->
+
+// .slider-container {
+// position: relative;
+// }
+// .slider-container img {
+// width: 800px;
+// position: absolute;
+// opacity: 0;
+// transition: opacity 1s;
+// z-index: 1;
+// }
+// .slider-container img.active{
+// opacity: 1;
+// }
+// .slider-container .slide-number{
+// position: absolute;
+// left: 10px;
+// top: 10px;
+// background-color: white;
+// color: black;
+// padding: 5px 10px;
+// z-index: 2;
+// border-radius: 6px;
+// font-size: 20px;
+
+// }
+// .slider-controls{
+// width: 800px;
+// margin:auto;
+// overflow: hidden;
+// }
+// .slider-controls .prev,
+// .slider-controls .next{
+// font-size: 15px;
+// width: 80px;
+// background-color: #d62828;
+// color: white;
+// text-align: center;
+// padding: 5px;
+// user-select: none;
+// border-radius: 4px;
+// }
+
+// .slider-controls .prev{
+// float:left;
+// }
+// .slider-controls .next{
+// float:right;
+// }
+// /* End Slider */  
+
+
+
+// <!-- <div class="slider-container">
+//   <div id="slide-number" class="slide-number"></div>
+//   <div class="imgs">
+//     <img src="/Images/Sider Images/risen-wang-20jX9b35r_M-unsplash.jpg" alt="" class="active">
+//     <img src="/Images/Sider Images/teenager-boy-stylish-clothes-posing.jpg" alt="" class="active">
+//     <img src="/Images/Sider Images/close-up-portrait-man-shirt-mockup.jpg" alt="">
+//     <img src="/Images/Sider Images/young-man-with-hand-pocket.jpg" alt="">
+//     <img src="/Images/Sider Images/close-up-portrait-man-shirt-mockup (cut).jpg" alt="">
+//   </div>
+//   <div class="slider-controls">
+//     <div class="prev" id="prev">
+//       <i class="fa-solid fa-angle-left"></i>
+//     </div>
+//     <div class="next" id="next">
+//       <i class="fa-solid fa-angle-right"></i>
+//     </div>
+//   </div>
+//   <span class="bullet" id="bullet"></span> -->
+// <!-- </div>
+
+// /* Start Slider */
+// .slider-container {
+// margin: 10px auto;
+// width: 800px;
+// height: 550px;
+// position: relative;
+// }
+// .slider-container img {
+// width: 800px;
+// height: 550px;
+// position: absolute;
+// opacity: 0;
+// transition: 1s opacity;
+// z-index: 1;
+// }
+
+// .slider-container img.active {
+// opacity: 1;
+// }
+// .slider-container .slide-number {
+// position: absolute;
+// left: 10px;
+// top: 10px;
+// background-color: #d62828;
+// color: white;
+// padding: 5px 10px;
+// font-size: 20px;
+// z-index: 2;
+// border-radius: 6px;
+// }
+
+// .slider-controls {
+// width: 800px;
+// margin: auto auto;
+// position: absolute;
+// top: 50%;
+// transform: translateY(-50%);
+// }
+// .slider-controls .next,
+// .slider-controls .prev {
+// color: white;
+// cursor: pointer;
+// font-size: 20px;
+// }
+// .slider-controls .next {
+// float: right;
+// position: relative;
+// right: -15px;
+// }
+// .slider-controls .prev {
+// float: left;
+// position: relative;
+// left: -15px;
+// }
+// .slider-controls .next.disabled,
+// .slider-controls .prev.disabled {
+// cursor: no-drop;
+// }
+// .bullet {
+// position: absolute;
+// height: 5px;
+// left: 50%;
+// bottom: -10px;
+// z-index: 4;
+// transform: translateX(-50%);
+// }
+// .bullet ul {
+// text-align: center;
+// }
+// .bullet ul li {
+// display: inline-block;
+// /* background-color: black;
+// color:white;
+// font-weight: bold;
+// height:20px;
+// width:20px;
+// border-radius:40px;
+// margin: 0 20px;
+// line-height:25px;
+// cursor: pointer; */
+// width: 20px;
+// height: 20px;
+// border-radius: 50%;
+// background-color: #d62828;
+// border: 3px solid white;
+// margin: 0 20px;
+// cursor: pointer;
+// }
+// .bullet ul li.active {
+// background-color: white;
+// color: black;
+// }
+
+// .imgs {
+// width: 800px;
+// }
+
+// -->
+
+
+
+// Chat Gpt Mwthod
+
+// // Start Variabels
+// let slider = document.getElementById("image-slider");
+// let currentIndex = 0;
+// let Active = document.getElementsByTagName("img")
+// // End Variabels
+
+// // Translate Funnction
+// function showImage(index) {
+//     let translateValue = -index * 100 + "%"
+//     slider.style.transform = slider.style.transform = 'translateX(' + translateValue + ')';
+// }
+// // next slide Funnction
+// function nextSlide() {
+//     currentIndex = (currentIndex + 1) % slider.children.length;
+//     showImage(currentIndex);
+// }
+// // Prev slide Funnction
+// function prevSlide() {
+//     currentIndex = (currentIndex - 1 + slider.children.length) % slider.children.length;
+//     showImage(currentIndex);
+// }
+// document.getElementById("next-btn").addEventListener("click", nextSlide);
+// document.getElementById("prev-btn").addEventListener("click", prevSlide);
+
+// Elzero Method
+// Get Slider Items | Array.From => [ES6]
+
+// var sliderItems = Array.from(
+// 	document.querySelectorAll(".siderImages .imgs img")
+// );
+// console.log(sliderItems);
+
+// Get Number Of Slides
+// var slidesCount = sliderItems.length;
+
+// Set CurrentIndex
+// var currentIndex = 1;
+
+// Slider Number  Element
+// var slideNumberElement = document.getElementById("slide-number");
+
+// Previous And Next Button
+// var nextButton = document.getElementById("next");
+// var prevButton = document.getElementById("prev");
+
+// Handle Click On Previous And Next Buttons
+// nextButton.onclick = nextSlide;
+// prevButton.onclick = prevSlide;
+
+// Create The Main Ul Element And Div
+// let mainUl = document.createElement("ul");
+// <div class="bullet" id="bullets">
+// let bullets = document.getElementById("bullets")
+
+// Set Id On Created Ul Element
+// mainUl.setAttribute("id", "ulBullets");
+// bullets.setAttribute("id", "ulBullets");
+
+// Create List Items Based On Slides Count
+// for (var i = 1; i <= slidesCount; i++) {
+// Create First Li
+// let Li = document.createElement("li");
+// let spans = document.createElement("span");
+//
+// Set Attribute Data Index To Li
+// spans.setAttribute("data-index", i);
+// Set Item Content
+// Li.appendChild(document.createTextNode(i));
+// Append Items To The Parent Ul
+// mainUl.appendChild(Li);
+
+// Append Items To The Parent Div
+// bullets.appendChild(spans);/
+// }
+
+// Add The Created ul Element To The Page
+// document.getElementById("bullet").appendChild(spans);
+
+// Get The New Created Ul
+// var newUl = document.getElementById("ulBu/llets");
+
+// var ulBullets = Array.from(document.querySelectorAll("#ulBullets li"));
+
+// Loop Through bullets
+// for (var i = 0; i < ulBullets.length; i++) {
+// ulBullets[i].onclick = function () {
+// currentIndex = parseInt(this.getAttribute("data-index"));
+// theChecker();
+// };
+// }
+
+// Trigger The Checker Function
+// theChecker();
+// Next Slide Function
+// function nextSlide() {
+// if (nextButton.classList.contains("disabled")) {
+// } else {
+// currentIndex++;
+// theChecker();
+// }
+// }
+// Prev Slide Function
+// function prevSlide() {
+// if (prevButton.classList.contains("disabled")) {/
+// } else {
+// currentIndex--;/
+// theChecker();
+// }
+// }
+
+// Create The Cheaacker Function
+// function theChecker() {
+// Set Slide Number
+// slideNumberElement.textContent =
+// "Slide # " + currentIndex + " Of " + slidesCount;
+
+// Remove All Active Classes
+// removeActive();
+// Set Active Class On Current Slide
+// sliderItems[currentIndex - 1].classList.add("active");
+
+// Set ACtive Class On Current Bullet Item
+// newUl.children[currentIndex - 1].classList.add("active");
+// Check If Current Slide Is Tehe First
+// if (currentIndex === 1) {
+// Add Disabled Class On previous Button
+// prevButton.classList.add("disabled");
+// } else {
+// Remove Disabled Class On previous Button
+// prevButton.classList.remove("disabled");
+// }
+// Check If Current Slide Is Tehe Last
+// if (currentIndex === slidesCount) {
+// Add Disabled Class On Next Button
+// nextButton.classList.add("disabled");
+// } else {
+// Remove Disabled Class On next Button
+// nextButton.classList.remove("disabled");
+// }
+// }
+
+// Remove All Active Classes From Images And Bullets
+
+// function removeActive() {
+// Loop Through Images
+// sliderItems.forEach(function (img) {
+// img.classList.remove("active");
+// });
+
+// Loop Through Bullets
+// ulBullets.forEach(function (bull) {
+// bull.classList.remove("active");/
+// });
+// }
+
+// End Elzero Method
+
+
+// <!-- <div class="cart-disc">
+//             <div class="shopping">
+//                 <a href=""><i class="fas fa-shopping-cart"></i></a>
+//                 <span class="quntity">0</span>
+            // </div> -->   

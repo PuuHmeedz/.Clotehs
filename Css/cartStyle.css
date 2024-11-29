@@ -1,0 +1,130 @@
+/* Start Global Rules */
+
+/* Start Color's Stock */
+
+/* Start Grey Color */
+/* d5f2e3 */
+/* Start Grey Color */
+
+/* Start White Color */
+/* F8E5EE */
+/* f4f4f4 */
+/* fdfffc */
+/* fefcfb */
+/* faf3dd */
+/* f6fff8 */
+/* fefae0 */
+/* F3F3F3 */
+/* FFEEF4 */
+/* FFFFDD */
+
+/* End White Color */
+
+/* Start Black Color */
+/* 060606 */
+/* 0C0C0C */
+/* 020202 */
+/* 0F0F0F */
+/* 0B0B0B */
+/* 0a0908 */
+/* 0a0f0d */
+/* 1b2021 */
+/* End Black Color */
+/* Start Green Color */
+/* 0d2818 */
+/* End Green Color */
+
+/* End Color's Stock */
+
+/* Strat Root Section */
+:root {
+	--header-color: #f4f4f4;
+	--sec-color: #d62828;
+	--font-color: #0d2818;
+}
+/* End Root Section */
+
+* {
+	font-family: "Bebas Neue", sans-serif;
+	margin: 0;
+	box-sizing: border-box;
+	padding: 0;
+	scroll-behavior: smooth;
+}
+body {
+	background-color: #0a0908;
+}
+ul {
+	list-style: none;
+}
+a {
+	color: black;
+	text-decoration: none;
+}
+.container {
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.page {
+	height: 100vh;
+}
+
+/* Start Component's  */
+.main-header {
+	color: white;
+	font-size: 35px;
+	text-align: center;
+	margin-top: 50px;
+	border: #0a0908 1px solid;
+	display: flex;
+	justify-content: center;
+}
+.main-header h3{
+	width: fit-content;
+	border: 2px solid white;
+    padding: 15px;
+}
+
+/* End Component's  */
+/* End Global Rules */
+
+/* Start Cart Inshaalah*/
+.cartHeader{
+	background-color: #f4f4f4;
+    padding: 15px;
+    text-align: center;
+}
+.cartHeader .puu{
+
+}
+.container-cart{
+height: 100vh;
+width: 100%;
+}
+.container-card .cartbox{
+	
+}
+.container-cart .cartbox .product{
+
+}
+.container-cart .cartbox .productBox{
+
+}
+.container-cart .cartbox .productBox .imageProduct{
+width: 10%;
+}
+.container-cart .cartbox .productBox .imageProduct img{
+max-width: 100%;
+}
+.container-cart .cartbox .productBox .text{
+
+}
+.container-cart .cartbox .productBox .text h3{
+
+}
+.container-cart .cartbox .productBox .text p{
+
+}
+/* End Cart Inshaalah*/
